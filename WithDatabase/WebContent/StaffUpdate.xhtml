@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Staff Information</title>
+</h:head>
+<h:body>
+	<h:form>
+
+		<h3>
+			Staff Information
+		</h3>
+
+
+		<h:panelGrid columns="2">
+			<h:outputLabel value="ID:" style="color:red" />
+			<h:inputText id="idText"
+				value="#{staffUpdate.id}" />
+		</h:panelGrid>
+
+		<h:panelGrid columns="6">
+			<h:outputLabel value="Last Name" style="color:blue" />
+			<h:inputText id="lastNameInputText"
+				value="#{staffUpdate.lastName}" />
+			<h:outputLabel value="First Name" style="color:cyan" />
+			<h:inputText id="firstNameInputText"
+				value="#{staffUpdate.firstName}" />
+			<h:outputLabel value="MI" />
+			<h:inputText id="miInputText" size="1"
+				value="#{staffUpdate.mi}" />
+		</h:panelGrid>
+
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Address" style="color:green"/>
+			<h:inputText id="addressInputText"
+				value="#{staffUpdate.address}" />
+		</h:panelGrid>
+
+		<h:panelGrid columns="4">
+			<h:outputLabel value="City" style="color:purple"/>
+			<h:inputText id="cityInputText" value="#{staffUpdate.city}" />
+			<h:outputLabel value="State" style="color:magenta"/>
+			<h:inputText id="stateInputText" value="#{staffUpdate.state}" />
+		</h:panelGrid>
+
+		<h:panelGrid columns="4">
+			<h:outputLabel value="Telephone" style="color:pink"/>
+			<h:inputText id="telephoneInputText"
+				value="#{staffUpdate.telephone}" />
+			<h:outputLabel value="Email" style="color:brown"/>
+			<h:inputText id="emailInputText"
+				value="#{staffUpdate.email}" />
+		</h:panelGrid>
+		
+		<!-- Use command button -->
+		<h:commandButton value="View"
+			action="#{staffUpdate.viewStaff()}" />
+		<h:commandButton value="Insert"
+			action="#{staffUpdate.insertStaff()}" />
+		<h:commandButton value="Update"
+			action="#{staffUpdate.updateStaff()}" />
+		<h:commandButton value="Clear" type="reset" />
+
+		<br />
+		<h:outputText escape="false" style="color:red"
+			value="#{staffUpdate.status}" />
+	</h:form>
+</h:body>
+</html>

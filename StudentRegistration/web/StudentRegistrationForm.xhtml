@@ -5,75 +5,77 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Student Registration Form</title>
+        
     </h:head>
     <h:body>
         <h:form>
-            <!-- folosim h:graphicImage -->
-            <h3>
-                Student Registration Form
-                <h:graphicImage value="flag.jpg" width="50" height="25"/>
-            </h3>
-            
-            <!-- folosim h:panelGrid -->
-            <h:panelGrid columns="6" style="color:green">
-                <h:outputLabel value="Last Name"/>
-                <h:inputText id="lastNameInputText"/>
-                <h:outputLabel value="First Name"/>
-                <h:inputText id="firstNameInputText"/>
-                <h:outputLabel value="MI"/>
-                <h:inputText id="miInputText" size="1"/>
-            </h:panelGrid>
-            
-            <!--folosim h:selectOneRadio -->
-            <h:panelGrid columns="2">
-            <h:outputLabel>Gender</h:outputLabel>
-            <h:selectOneRadio id="genderSelectOneRadio">
-                <f:selectItem itemValue="Male"
-                              itemLabel="Male"/>
-                <f:selectItem itemValue="Female"
-                              itemLabel="Female"/>
-            </h:selectOneRadio>
-            </h:panelGrid>
-            
-            <!-- folosim combo box si list -->
-            <h:panelGrid columns="4">
-                <h:outputLabel value="Major"/>
-                <h:selectOneMenu id="majorSelectOneMenu">
-                <f:selectItem itemValue="ComputerScience"/>
-                <f:selectItem itemValue="Mathematics"/>
-                </h:selectOneMenu>
-                
-                <h:outputLabel value="Minor"/>
-                <h:selectManyListbox>
-                <f:selectItem itemValue="ComputerScience"/>
-                <f:selectItem itemValue="Mathematics"/>
-                <f:selectItem itemValue="English"/>
-                </h:selectManyListbox>     
-            </h:panelGrid>
-            
-            <!-- folosim checkbox-uri -->
-            <h:panelGrid columns="4">
-                <h:outputLabel value="Hobby: "/>
-                <h:selectManyCheckbox>
-                <f:selectItem itemValue="Tennis"/>
-                <f:selectItem itemValue="Golf"/>
-                <f:selectItem itemValue="Ping Pong"/>
-                </h:selectManyCheckbox>
-            </h:panelGrid>
-            
-            <!-- folosim textArea -->
-            <h:panelGrid columns="1">
-                <h:outputLabel>Remarks:</h:outputLabel>
-                <h:inputTextarea id="remarksInputTextarea"
-                                 style="width:400px; height:50px;"/>
-            </h:panelGrid>
-            
-            <!-- folosim h:commandButton -->
-            <h:commandButton value="Register"/>
-            
+        	<h3>
+        	Student Registration Form
+        	<h:graphicImage value="flag.jpg" width="50" height="25"></h:graphicImage>
+        	</h3>
+        	
+        	<h:panelGrid columns="6" style="color:green">
+        	<h:outputLabel value="Last Name"/>
+        	<h:inputText id="lastNameInputText"
+        	value="#{registration.lastName}"/>
+        	<h:outputLabel value="First Name"/>
+        	<h:inputText id="firstNameInputText"
+        	value="#{registration.firstName}"/>
+        	<h:outputLabel value="MI"/>
+        	<h:inputText id="miInputText" size="1" 
+        	value="#{registration.mi}"/>
+        	</h:panelGrid>
+        	
+        	<h:panelGrid columns="2">
+        	<h:outputLabel>Gender</h:outputLabel>
+        	<h:selectOneRadio id="genderSelectOneRadio"
+        	value="#{registration.gender}">
+        	<f:selectItem itemValue="Male" itemLabel="Male"></f:selectItem>
+        	<f:selectItem itemValue="Female" itemLabel="Female"></f:selectItem>
+        	</h:selectOneRadio>
+        	</h:panelGrid>
+        	
+        	<h:panelGrid columns="4">
+        	<h:outputLabel value="Major"/>
+        	<h:selectOneMenu id="majorSelectOneMenu"
+        	value="#{registration.major}">
+        	<f:selectItem itemValue="Computer Science"/>
+        	<f:selectItem itemValue="Mathematics"/>
+        	</h:selectOneMenu>
+        	<h:outputLabel value="Minor"/>
+        	<h:selectManyListbox id="minorSelectManyListbox"
+        	value="#{registration.minor}">
+        	<f:selectItem itemValue="Computer Science"/>
+        	<f:selectItem itemValue="Mathematics"/>
+        	<f:selectItem itemValue="English"/>
+        	</h:selectManyListbox>
+        	</h:panelGrid>
+        	
+        	<h:panelGrid columns="4">
+        	<h:outputLabel>Hobby: </h:outputLabel>
+        	<h:selectManyCheckbox id="hobbySelectManyCheckBox"
+        	value="#{registration.hobby}">
+        	<f:selectItem itemValue="Tennis"/>
+        	<f:selectItem itemValue="Golf"/>
+        	<f:selectItem itemValue="Ping Pong"/>
+        	</h:selectManyCheckbox>
+        	</h:panelGrid>
+        	
+        	<h:panelGrid columns="1">
+        	<h:outputLabel>Remarks:</h:outputLabel>
+        	<h:inputTextarea id="remarksInputTextarea" style="wisth:400px;height:50px"
+        	value="#{registration.remarks}"></h:inputTextarea>
+        	</h:panelGrid>
+        	
+        	
+        	<h:commandButton value="Register"/>
+        	
+        	<br />
+        	<h:outputText escape="false" style="color:red"
+        	value="#{registration.response}"/>
+        	
+        	
+        	
         </h:form>
-        
-        
     </h:body>
 </html>
-
